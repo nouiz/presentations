@@ -251,11 +251,11 @@ Montreal Institute for Machine Learning\newline
     \item \begin{bf}Multi-GPU\end{bf} (via platoon)
     \item New GPU back-end:
       \begin{itemize}
-      \item \begin{bf}Float16\end{bf} new back-end (need cuda 7.5)
+      \item \begin{bf}Float16 storage\end{bf} new back-end (need cuda 7.5)
       \item \begin{bf}Multi dtypes\end{bf}
 %      \item Multi-GPU support in the same process
       \end{itemize}
-    \item Sparse matrices (CPU only)
+%    \item Sparse matrices (CPU only)
     \item Extensive unit-testing and self-verification
     \item Extensible (You can create new operations as needed)
   \end{itemize}
@@ -423,6 +423,9 @@ print f([0, 1, 2])
 \begin{frame}{Enabling GPU}
   \begin{itemize}
   \item libgpuarray (new-backend) supports all dtype
+    \begin{itemize}
+    \item including float16 for storage
+    \end{itemize}
   \item Theano's old GPU back-end only supports 32 bit on GPU
   \item CUDA supports float64, but it is slow on gamer GPUs
   \end{itemize}
@@ -667,7 +670,7 @@ train_model = theano.function(
         }
 \begin{lstlisting}
 # convolve input feature maps with filters
-conv_out = conv.conv2d(input=x, filters=W)
+conv_out = nnet.conv2d(input=x, filters=W)
 
 # pool each feature map individually,
 # using maxpooling
@@ -724,7 +727,7 @@ Some Highlights:
 \item ...
 \end{itemize}
 
-A total of 141 people contributed to this release.
+A total of 123 people contributed to this release.
 \end{frame}
 
 
