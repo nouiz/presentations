@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage[utf8x]{inputenc}
+\usepackage{multicol}
 %\logo{\includegraphics[width=.8in]{UdeM_NoirBleu_logo_Marie_crop}}
 \usepackage{listings}
 
@@ -26,7 +27,7 @@ Montréal, Canada \newline
 Presentation prepared with Pascal Lamblin and Simon Lefrancois
 }
 
-\date{AI With The Best 2016}
+\date{NYCPython meetup 2017}
 
 \setbeamertemplate{navigation symbols}{}
 \begin{document}
@@ -34,9 +35,9 @@ Presentation prepared with Pascal Lamblin and Simon Lefrancois
 \begin{frame}[plain]
  \titlepage
  \vspace{-5em}
- \includegraphics[width=1.1in]{pics/MILA.png}
+ \includegraphics[width=1.1in]{../pics/MILA.png}
  \hfill
- \includegraphics[width=.8in]{pics/UdeM_NoirBleu_logo_Marie_crop}
+ \includegraphics[width=.8in]{../pics/UdeM_NoirBleu_logo_Marie_crop}
 \end{frame}
 
 \section{Introduction}
@@ -90,7 +91,7 @@ Presentation prepared with Pascal Lamblin and Simon Lefrancois
 \begin{bf}Fast to develop\end{bf}\newline \bigskip
 \begin{bf}Fast to run\end{bf}\newline \bigskip
 \hspace{-2.5cm}
-\includegraphics[width=0.35\textwidth]{pics/road-runner-1.jpg}
+\includegraphics[width=0.35\textwidth]{../pics/road-runner-1.jpg}
 \end{center}
 \end{frame}
 
@@ -121,15 +122,15 @@ Presentation prepared with Pascal Lamblin and Simon Lefrancois
 
 \begin{frame}{Project status}
   \begin{itemize}
-    \item Mature: Theano has been developed and used since January 2008 (8 yrs old)
+    \item Mature: Theano has been developed and used since January 2008 (9 yrs old)
     \item Driven hundreds of research papers % Over a thousands of research paper
     \item Good user documentation
     \item Active mailing list with worldwide participants
     \item Core technology for Silicon-Valley start-ups
     \item Many contributors (some from outside our institute)
     \item Used to teach many university classes
-    \item Has been used for research at big compagnies
-    \item Theano 0.8.2 released 21th of April, 2016
+    \item Used for research at big compagnies
+    \item Theano 0.9 released 20th of March, 2017
   \end{itemize}
   Theano: \url{deeplearning.net/software/theano/}
 
@@ -147,7 +148,7 @@ Active community
   \begin{itemize}
   \item Many people reply on our mailing lists
   \item Hundreds of answered questions on StackOverflow
-  \item 141 contributors to Theano 0.8
+  \item 123 contributors to Theano 0.9
   \item Main developers at MILA
   \end{itemize}
 \end{frame}
@@ -156,56 +157,64 @@ Active community
 Institut des algorithmes d'apprentissage de Montréal\newline
 Montreal Institute for Machine Learning\newline
 \begin{itemize}
-\item Professors 7
-\item Staff 7
+\item Professors 8
+\item Staff 11
 \item Visiting Scientists 1
-\item Post-Doc 6
-\item Ph.D. students 42
-\item M.Sc. students 22
-\item Interns 22
-\item Total 107
+\item Post-Doc 9
+\item Ph.D. students 46
+\item M.Sc. students 23
+\item Interns 15
+\item Total 113
 \end{itemize}
  \vspace{-5em}
  \hspace{19em}
- \includegraphics[width=1.4in]{pics/MILA.png}
+ \includegraphics[width=1.4in]{../pics/MILA.png}
  \hfill
 \url{mila.umontreal.ca} \newline
 \begin{tiny}formely known as LISA\end{tiny}
 \end{frame}
 
 \begin{frame}{MILA Partners}
-\begin{itemize}
+    \begin{multicols}{2}
+  \begin{itemize}
+    
 \item Many universities
-\item Ubisoft
 \item Nuance
 \item IBM
 \item Google
 \item Facebook
 \item NVIDIA
 \item Huawei
+\item amazon.com
+\item Druide
+\item Microsoft
 \item Intel
 \item D-Wave
 \item ApSTAT
 \item Qualcomm
 \item Imagia
 \item Sulfur Heron
-\end{itemize}
+\item Ubisoft
+    \end{itemize}
+
+\end{multicols}
 \end{frame}
 
 
 \section{Theano}
 \subsection{Description}
-\begin{frame}{Python}
-  \begin{itemize}
-  \item General-purpose high-level OO interpreted language
-  \item Emphasizes code readability
-  \item Comprehensive standard library
-  \item Dynamic type and memory management
-  \item Easily extensible with C
-  \item Slow execution
-  \item Popular in {\em web development}\ and {\em scientific communities}
-  \end{itemize}
-\end{frame}
+
+%% \begin{frame}{Python}
+%%   \begin{itemize}
+%%   \item General-purpose high-level OO interpreted language
+%%   \item Emphasizes code readability
+%%   \item Comprehensive standard library
+%%   \item Dynamic type and memory management
+%%   \item Easily extensible with C
+%%   \item Slow execution
+%%   \item Popular in {\em web development}\ and {\em scientific communities}
+%%   \end{itemize}
+%% \end{frame}
 
 \begin{frame}
   \tableofcontents[currentsection]
@@ -238,17 +247,17 @@ Montreal Institute for Machine Learning\newline
     \begin{itemize}
       \item CUDA, CuBLAS, CuDNN, BLAS, SciPy, PyCUDA, Cython, Numba, ...
     \end{itemize}
-    \item Sparse matrices (CPU only)
-    \item Extensive unit-testing and self-verification
-    \item Extensible (You can create new operations as needed)
     \item Works on \begin{bf}Linux, OS X and Windows\end{bf}
     \item \begin{bf}Multi-GPU\end{bf} (via platoon)
     \item New GPU back-end:
       \begin{itemize}
       \item \begin{bf}Float16\end{bf} new back-end (need cuda 7.5)
       \item \begin{bf}Multi dtypes\end{bf}
-      \item Multi-GPU support in the same process
+%      \item Multi-GPU support in the same process
       \end{itemize}
+    \item Sparse matrices (CPU only)
+    \item Extensive unit-testing and self-verification
+    \item Extensible (You can create new operations as needed)
   \end{itemize}
 \end{frame}
 
@@ -300,9 +309,9 @@ print f([0, 1, 2])
 
 \begin{frame}{Simple example}
 \center
-\includegraphics[width=0.35\textwidth]{pics/f_unoptimized.png}
+\includegraphics[width=0.35\textwidth]{../pics/f_unoptimized.png}
 \hspace{0.1\textwidth}
-\includegraphics[width=0.35\textwidth]{pics/f_optimized.png}
+\includegraphics[width=0.35\textwidth]{../pics/f_optimized.png}
 \end{frame}
 
 
@@ -407,14 +416,14 @@ print f([0, 1, 2])
 >>> f = theano.function([x], g)
 >>> theano.printing.pydotprint(f)
 \end{lstlisting}
-\includegraphics[width=0.4\textwidth]{pics/theano_grad_opt.png}
+\includegraphics[width=0.4\textwidth]{../pics/theano_grad_opt.png}
 \end{frame}
 
 \subsection{GPU}
 \begin{frame}{Enabling GPU}
   \begin{itemize}
-  \item Theano's current back-end only supports 32 bit on GPU
   \item libgpuarray (new-backend) supports all dtype
+  \item Theano's old GPU back-end only supports 32 bit on GPU
   \item CUDA supports float64, but it is slow on gamer GPUs
   \end{itemize}
 \end{frame}
@@ -422,7 +431,8 @@ print f([0, 1, 2])
 
 \begin{frame}{CuDNN}
   \begin{itemize}
-  \item V4, V5 and V5.1 are supported.
+  \item V5 and V5.1 are supported.
+  \item V6 compile.
   \item It is enabled automatically if available.
   \item Theano flag to get an error if can't be used: ``dnn.enabled=True''
   \item Theano flag to disable it: ``dnn.enabled=False''
@@ -678,7 +688,7 @@ output = T.tanh(pooled_out +
 \begin{itemize}
 \item Allows looping (for, map, while)
 \item Allows recurrence (reduce)
-\item Allows recurrence with dependency on many of the previous time steps
+\item Allows recurrence with dependency on a fixed number of previous time steps
 \item Optimize some cases like moving computation outside of scan
 \item The Scan grad is done via Backpropagation Through Time (BPTT)
 \end{itemize}
@@ -700,51 +710,50 @@ output = T.tanh(pooled_out +
 \fi
 
 \section{News}
-\begin{frame}{Theano 0.8}
-\begin{tiny}Released 21th of March, 2016\end{tiny}
+\begin{frame}{Theano 0.9}
+\begin{tiny}Released 20th of March, 2017\end{tiny}
 
-Highlights:
+Some Highlights:
 \begin{itemize}
 \item Faster compilation and execution
-\item Integration of CuDNN for better GPU performance
-\item Many Scan improvements (execution speed up, ...)
-\item Interactive visualization of graphs with d3viz
-\item optimizer=fast\_compile moves computation to the GPU.
+\item conda packages for Mac, Linux and Windows
+\item Bool dtype support
+\item Many Scan improvements (execution speed up, checkpoints, ...)
 \item Multi-GPU for data parallism via Platoon \url{https://github.com/mila-udem/platoon}
-\item cnmem (better memory management on GPU)
 \item New GPU back-end
+\item ...
 \end{itemize}
 
 A total of 141 people contributed to this release.
 \end{frame}
 
 
-\begin{frame}{Since last release}
+%% \begin{frame}{Since last release}
 
-Highlights:
-\begin{itemize}
-\item Computation and compilation speed up
-\item Multi-cores convolution and pooling on CPU
-\item More numerical stability by default for some graphs
-\end{itemize}
-\begin{itemize}
-\item CuDNN: 5.1, batch normalization, (RNN soon)
-\item Dilated convolution
-\item Multiple-GPU, synchronous update (via platoon)
-\item Partial function evaluation
-\item Add gradient of solve, tensorinv (CPU), tensorsolve (CPU) searchsorted (CPU)
-\item Add Multinomial Without Replacement
-\item ...
-\end{itemize}
-90 people already contributed to the development version.
+%% Highlights:
+%% \begin{itemize}
+%% \item Computation and compilation speed up
+%% \item Multi-cores convolution and pooling on CPU
+%% \item More numerical stability by default for some graphs
+%% \end{itemize}
+%% \begin{itemize}
+%% \item CuDNN: 5.1, batch normalization, (RNN soon)
+%% \item Dilated convolution
+%% \item Multiple-GPU, synchronous update (via platoon)
+%% \item Partial function evaluation
+%% \item Add gradient of solve, tensorinv (CPU), tensorsolve (CPU) searchsorted (CPU)
+%% \item Add Multinomial Without Replacement
+%% \item ...
+%% \end{itemize}
+%% 90 people already contributed to the development version.
 
-\end{frame}
+%% \end{frame}
 
 \begin{frame}{Roadmap}
   \normalsize
   \begin{itemize}
-  \item Deprecate the old GPU back-end
-  \item Faster compile time
+  \item Remove the old GPU back-end
+  \item Still Faster compile time
     \begin{itemize}
     \item First time compilation (less C code compilations, already cached)
     \item Of big graph (faster graph optimization)
@@ -752,10 +761,12 @@ Highlights:
   \item Handling of bigger graph
   \item Speed/Memory trade off
     \begin{itemize}
-    \item Scan very long sequence, (ex: Audio recognition and generation)
     \item Recompute cheap operation of the forward during the gradient
     \end{itemize}
-  \item More Multi-GPU data parallelism algo
+  \item Faster computation (CuDNN v6, ...)
+  \item More determinism vs speed tradeoff
+  \item Encapsulation of sub graph and redefinition of gradient: OpFromGraph
+  \item More variants of convolutions
   \end{itemize}
 \end{frame}
 
